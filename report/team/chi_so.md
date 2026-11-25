@@ -25,16 +25,23 @@ Chỉ số trong đợt chạy thử là 82,83% (chính), 27,12% (bỏ qua gợi
 | agent_run_completed | Agent | attempt, tokens_in, tokens_out, tool_calls, status, trace_id | Sau mỗi lần chạy, kể cả lần lỗi |
 | agent_suggestion_shown | Giao diện nhân viên | staff_id, so_tien_de_xuat, trace_id | Khi gợi ý hiện ra |
 | staff_review_decision | Nhân viên | quyet_dinh (giu/sua/bo), phut_xem_lai đo thật, trace_id | Khi bấm gửi, sửa hoặc bỏ |
+| staff_rework_completed | Nhân viên | phut_lam_lai, ly_do, trace_id | Khi làm lại xong |
 | handoff_to_staff | Agent | reason, tom_tat, trace_id | Khi chuyển cho nhân viên |
+| confirm_received_clicked | Khách | request_id, so_tien, trace_id | Khi khách bấm xác nhận đã nhận tiền |
+| notification_sent | Hệ thống thông báo | request_id, kenh, gio_gui, trace_id | Khi tin nhắn gửi đi thực tế |
 | ticket_closed | Hệ thống ticket | closed_at, trace_id | Khi đóng yêu cầu |
 | ticket_reopened | Khách | reopened_at, reason, trace_id | Khi khách mở lại |
+| complaint_received | Khách | request_id, loai_khieu_nai (thong_bao/so_tien/khac), trace_id | Khi khách gửi khiếu nại |
 | audit_sample_checked | Kế toán | so_tien_da_hoan, so_tien_dung, trace_id | Hằng tuần |
+
+Giá trị `reason` của `handoff_to_staff` và `ticket_reopened` được ghi cố định: `thieu_du_lieu` (thiếu dữ liệu để xử lý) và `ngoai_thoi_han_luu_tru` (ngoài thời hạn tra cứu 12 tháng).
 
 **Kiểm tra chéo:** với mỗi chỉ số ở bảng E1, ghi event dùng để tính. Chỉ số nào không tính được từ danh sách event thì chưa đo được.
 
 - Chính: `refund_request_created` (mẫu số) + `ticket_closed` (đóng trong 24 giờ kể từ lúc tạo) + `ticket_reopened` (không có trong 7 ngày).
 - Bỏ qua gợi ý: `staff_review_decision`, số có `quyet_dinh` là `sua` hoặc `bo`, chia tổng số event này.
 - Lỗi lọt đến khách: `ticket_reopened` trong 7 ngày, chia `refund_request_created`.
+- Làm lại (E2): `staff_rework_completed` chia `refund_request_created`, theo tuần.
 - Dùng (tự đề xuất): `agent_suggestion_shown` chia `refund_request_created`, lọc theo `arm`.
 - An toàn (tự đề xuất): `audit_sample_checked`.
 

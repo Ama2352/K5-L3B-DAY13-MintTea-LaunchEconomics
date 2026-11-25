@@ -35,7 +35,7 @@ Người gắn nhãn 1: Thảo Quyên · Người gắn nhãn 2: Quỳnh Anh (g�
 
 Mỗi ca không trùng một câu. Đồng thuận dưới 80% thì ghi định nghĩa đã viết lại.
 
-- **Ca 3 (Ngầm vs Ngữ cảnh) → Ngữ cảnh:** khách đã báo "chưa được hoàn" nên lỗi đã lộ ra, không phải lỗi ngầm; trợ lý hoàn đúng thiết kế (ví LogiX trong 5 phút), chỉ giả định "tiền về ngân hàng" không khớp kỳ vọng của khách. Ngầm chỉ dùng khi cả khách lẫn hệ thống đều không nhận ra cho tới khi kiểm tra.
+- **Ca 3 (Ngầm vs Ngữ cảnh) → Ngữ cảnh:** khách đã báo "chưa được hoàn" nên lỗi đã lộ ra, không phải lỗi ngầm; trợ lý hoàn đúng thiết kế (ví dụ hoàn trong 5 phút, đúng quy trình LogiX), chỉ giả định "tiền về ngân hàng" không khớp kỳ vọng của khách. Ngầm chỉ dùng khi cả khách lẫn hệ thống đều không nhận ra cho tới khi kiểm tra.
 
 ## Bảng khắc phục cho 5 ca, mỗi loại một ca
 
@@ -43,8 +43,8 @@ Cách phát hiện phải đo được (event, ngưỡng, tần suất). Ngườ
 
 | Ca | Loại lỗi | Phát hiện bằng gì | Khắc phục thế nào | Ai phụ trách |
 | --: | --- | --- | --- | --- |
-| 14 | Do người dùng | Event `confirm_received_clicked` mà 24 giờ sau có `reopen_request` hoặc khiếu nại cùng `trace_id`; cảnh báo khi quá 1% yêu cầu đóng trong ngày | Thêm bước xác nhận hai lần kèm số tiền và tài khoản nhận; cho phép mở lại trong 7 ngày không cần tạo yêu cầu mới | PM trợ lý hoàn phí |
+| 14 | Do người dùng | Event `confirm_received_clicked` mà 24 giờ sau có `ticket_reopened` hoặc `complaint_received` cùng `trace_id`; cảnh báo khi quá 1% yêu cầu đóng trong ngày | Thêm bước xác nhận hai lần kèm số tiền và tài khoản nhận; cho phép mở lại trong 7 ngày không cần tạo yêu cầu mới | PM trợ lý hoàn phí |
 | 2 | Hệ thống | Kiểm tra mẫu mỗi ngày: so tham số tool `tra_bang_gia` (loại hàng, cân nặng) với dữ liệu đơn; ngưỡng 0 ca sai loại hàng; theo dõi tỉ lệ `mo_lai_trong_7_ngay` của `hang_nang` theo tuần | Bắt buộc suy ra loại hàng từ cân nặng (từ 20 kg là hàng nặng) trước khi gọi tool; thêm kiểm tra đầu ra tool so với khoảng giá hợp lệ | Kỹ sư trưởng agent |
-| 16 | Ngữ cảnh | Event `notification_sent` có giờ gửi ngoài 07:00–21:00; tỉ lệ khiếu nại về thông báo theo tuần, ngưỡng 0,5% | Hẹn giờ gửi: tin nhắn tạo ngoài khung 07:00–21:00 được giữ lại tới 07:00 sáng hôm sau; tin gấp vẫn gửi qua kênh không rung | Trưởng nhóm CSKH |
+| 16 | Ngữ cảnh | Event `notification_sent` có giờ gửi ngoài 07:00–21:00; tỉ lệ `complaint_received` có `loai_khieu_nai` = `thong_bao` theo tuần, ngưỡng 0,5% | Hẹn giờ gửi: tin nhắn tạo ngoài khung 07:00–21:00 được giữ lại tới 07:00 sáng hôm sau; tin gấp vẫn gửi qua kênh không rung | Trưởng nhóm CSKH |
 | 19 | Giới hạn hệ thống | Event `handoff_to_staff` với `reason` = `ngoai_thoi_han_luu_tru`; theo dõi số ca mỗi tuần và thời gian nhân viên xử lý | Giữ cách chuyển nhân viên kèm tóm tắt; báo ngay thời hạn tra cứu 12 tháng khi khách bắt đầu; nếu tỉ lệ vượt 3% thì cân nhắc mở rộng kho dữ liệu | PM trợ lý hoàn phí |
 | 12 | Ngầm | Cảnh báo chi phí token trung bình mỗi yêu cầu theo depot mỗi ngày: depot vượt 1,5 lần trung vị 12 depot hai ngày liên tiếp; kèm kiểm tra tool trả đủ trường (schema) | Thêm kiểm tra schema đầu ra của tool tra đơn và báo lỗi khi thiếu trường; giới hạn số lần gọi lại tối đa 3 mỗi yêu cầu | Kỹ sư trưởng agent |
