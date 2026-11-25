@@ -9,7 +9,7 @@ Thành viên và phân công được ghi trong [TEAM.md](../../TEAM.md).
 | Phần | Kết quả và bằng chứng |
 | --- | --- |
 | A · Chi phí | Ba phép thử A1 đạt. CPS là 4.472 đ trên toàn mẫu và 3.414 đ biến đổi trong phạm vi nội địa và hàng nặng (simulated). Quốc tế có CPS 22.515 đ, vượt mốc 12.000 đ nhân viên tự xử lý một yêu cầu (simulated). [Bảng chi phí](bang_chi_phi.md) |
-| B · Độ nhạy | Đã tính 9 kịch bản riêng và 1 cặp. Làm lại chiếm 51,77% tổng chi phí. Giới hạn 2 lượt cho chi phí toàn hệ thống thấp nhất là 6.901.220 đ trên 1.200 yêu cầu. Xem lại 100% đầu ra đưa CPS lên 11.743–12.415 đ (simulated). [Bảng độ nhạy](bang_chi_phi.md#b1--đổi-từng-yếu-tố) |
+| B · Độ nhạy | Đã tính 9 kịch bản riêng và 1 cặp. Làm lại chiếm 51,77% tổng chi phí (simulated). Giới hạn 2 lượt cho chi phí toàn hệ thống thấp nhất là 6.901.220 đ trên 1.200 yêu cầu (simulated). Xem lại 100% đầu ra đưa CPS lên 11.743–12.415 đ (simulated). [Bảng độ nhạy](bang_chi_phi.md#b1--đổi-từng-yếu-tố) |
 | C · Lỗi | Hai người gắn nhãn độc lập đồng thuận 19/20 ca (95%). Đã thống nhất ca 3 và xây phương án phát hiện, khắc phục cho 5 ca thuộc 5 loại. [Bảng lỗi](bang_loi.md) |
 | D · Pilot | Chia ngẫu nhiên theo nhân viên, phân tầng theo depot, 20 người mỗi nhóm, có đối chứng đồng thời và 3 luật dừng. MDE +6 điểm phần trăm cần 859 quan sát hiệu dụng, tương ứng 5.980 yêu cầu thực tế/nhóm nếu mỗi người nhận 299 yêu cầu. [Kế hoạch pilot](pilot_plan.yaml) · [Code tính mẫu](../../src/pilot_calc.py) |
 | E · Chỉ số và Gate 2a | Toàn mẫu có 82,83% đóng trong 24 giờ và không mở lại trong 7 ngày, 27,12% sửa/bỏ trong các ca được xem lại, và 4,25% mở lại. Đã chọn thêm 2 chỉ số, mô tả 8 event có trace_id và 3 rủi ro kinh tế. [Đặc tả chỉ số](chi_so.md) · [Hồ sơ launch](ho_so_launch_v0.md) |
