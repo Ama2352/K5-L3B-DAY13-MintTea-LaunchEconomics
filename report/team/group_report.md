@@ -4,21 +4,23 @@ Thành viên và phân công được ghi trong [TEAM.md](../../TEAM.md).
 
 ## Mục tiêu và cách làm
 
-Đánh giá tính khả thi về chi phí của trợ lý hoàn phí LogiX-VN và chuẩn bị kế hoạch pilot có đối chứng. Nhóm dùng 1.624 trace liên kết với 1.200 yêu cầu giả lập. Chi phí token và công cụ cộng trên mọi lượt chạy. Chi phí xem lại và làm lại dùng phút simulated.
+Đánh giá chi phí của trợ lý hoàn phí LogiX-VN và thiết kế pilot có đối chứng. Nhóm dùng 1.624 lượt chạy liên kết với 1.200 yêu cầu giả lập. Chi phí token và công cụ bao gồm mọi lượt chạy. Công xem lại và làm lại tính từ phút simulated.
 
-| Phần | Cách làm và bằng chứng |
+| Phần | Kết quả và bằng chứng |
 | --- | --- |
-| A · Chi phí | Kiểm tra ba công thức chạy lại, tính chi phí theo trace, chia bốn loại yêu cầu và cộng chi phí cố định cho phạm vi pilot. [Bảng chi phí](bang_chi_phi.md) |
-| B · Độ nhạy | Chạy chín thay đổi riêng và một cặp. So sánh giới hạn 1–3 lần theo chi phí toàn hệ thống và giả lập xem lại 100% đầu ra. [Bảng độ nhạy](bang_chi_phi.md#b1--đổi-từng-yếu-tố) |
-| C · Lỗi | Chờ hai bộ nhãn độc lập, đồng thuận và bảng khắc phục năm ca. [Bảng lỗi](bang_loi.md) |
-| D · Pilot | Chờ cỡ mẫu, phương án chia có đối chứng, luật dừng và lịch quyết định. [Kế hoạch pilot](pilot_plan.yaml) |
-| E · Gate 2a | Hồ sơ v0 đã tổng hợp kinh tế. Chờ đặc tả chỉ số, event và kết quả duyệt chéo. [Chỉ số](chi_so.md) · [Hồ sơ launch](ho_so_launch_v0.md) |
+| A · Chi phí | Ba phép thử A1 đạt. CPS là 4.472 đ trên toàn mẫu và 3.414 đ biến đổi trong phạm vi nội địa và hàng nặng (simulated). Quốc tế có CPS 22.515 đ, vượt mốc 12.000 đ nhân viên tự xử lý một yêu cầu (simulated). [Bảng chi phí](bang_chi_phi.md) |
+| B · Độ nhạy | Đã tính 9 kịch bản riêng và 1 cặp. Làm lại chiếm 51,77% tổng chi phí. Giới hạn 2 lượt cho chi phí toàn hệ thống thấp nhất là 6.901.220 đ trên 1.200 yêu cầu. Xem lại 100% đầu ra đưa CPS lên 11.743–12.415 đ (simulated). [Bảng độ nhạy](bang_chi_phi.md#b1--đổi-từng-yếu-tố) |
+| C · Lỗi | Hai người gắn nhãn độc lập đồng thuận 19/20 ca (95%). Đã thống nhất ca 3 và xây phương án phát hiện, khắc phục cho 5 ca thuộc 5 loại. [Bảng lỗi](bang_loi.md) |
+| D · Pilot | Chia ngẫu nhiên theo nhân viên, phân tầng theo depot, 20 người mỗi nhóm, có đối chứng đồng thời và 3 luật dừng. MDE +6 điểm phần trăm cần 859 quan sát hiệu dụng, tương ứng 5.980 yêu cầu thực tế/nhóm nếu mỗi người nhận 299 yêu cầu. [Kế hoạch pilot](pilot_plan.yaml) · [Code tính mẫu](../../src/pilot_calc.py) |
+| E · Chỉ số và Gate 2a | Toàn mẫu có 82,83% đóng trong 24 giờ và không mở lại trong 7 ngày, 27,12% sửa/bỏ trong các ca được xem lại, và 4,25% mở lại. Đã chọn thêm 2 chỉ số, mô tả 8 event có trace_id và 3 rủi ro kinh tế. [Đặc tả chỉ số](chi_so.md) · [Hồ sơ launch](ho_so_launch_v0.md) |
 
-## Kết quả và giới hạn
+## Quyết định và việc còn lại
 
-CPS toàn mẫu là **4.472 đ** (simulated), gấp **16,28 lần** hóa đơn token và công cụ mỗi yêu cầu. Làm lại chiếm **51,77%** tổng chi phí (simulated). Chi phí toàn hệ thống theo quy ước B3 thấp nhất khi giới hạn **2 lần**, ở **6.901.220 đ** cho 1.200 yêu cầu (simulated). Nội địa và hàng nặng là phạm vi đề xuất xem xét. Xem lại toàn bộ đầu ra có thể đẩy CPS lên **12.415 đ** (simulated), vượt baseline 12.000 đ.
+Nhóm đề xuất **Go có điều kiện** với pilot nội địa và hàng nặng. Kế hoạch cần đủ 40 nhân viên và 299 ca hợp lệ mỗi người. Dữ liệu quan sát có 20 mã nhân viên tại 6 depot, nên cần xác minh quân số và lưu lượng thực tế. Ngày quyết định phải chờ đủ cửa sổ mở lại 7 ngày cho ca cuối. Các tỷ lệ trong mẫu mô tả đợt chạy thử. Pilot có đối chứng sẽ dùng để ước lượng tác động.
 
-Giờ nhân viên và chi phí tháng là đầu vào giả lập. Mẫu quan sát phục vụ mô hình chi phí. Pilot có đối chứng cần kiểm tra hiệu quả thực tế, mức sử dụng và tỷ lệ mở lại sau 7 ngày. Đề xuất hiện tại là **No-go** tại Gate 2a, chờ hoàn tất bằng chứng trong [hồ sơ launch](ho_so_launch_v0.md). Kết quả hội đồng chờ duyệt chéo.
+Mức chênh mục tiêu của kế hoạch là +6 điểm phần trăm. Nếu tác động thật chỉ +5 điểm, power ước tính khoảng 64%. Do xem lại toàn bộ đầu ra có thể vượt chi phí xử lý thủ công, nhóm cần đo thời gian xem lại, thời gian làm lại và tỷ lệ mở lại trước khi tăng rollout.
+
+Kết quả hội đồng và điểm duyệt chéo đang chờ biên bản. [Phiếu chấm](phieu_cham.md)
 
 ## Tài liệu
 

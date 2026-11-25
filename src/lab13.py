@@ -1,10 +1,12 @@
 """Lab 13 · Định giá agent và lập kế hoạch pilot (Gate 2a) — bài làm của nhóm (file nộp).
-Chạy trong thư mục src/: python3 lab13.py   (cần pandas; Nhiệm vụ D cần thêm statsmodels)
+Chạy trong thư mục src/: python3 lab13.py (cần pandas; statsmodels dùng để đối chiếu D1).
 Không cần khoá API. Điền các chỗ ghi VIẾT Ở ĐÂY (đánh dấu TODO CP1…CP4). Dữ liệu trong hai file CSV là giả lập.
 Bản gốc chưa sửa nằm ở lab13_starter.py.
 """
 import math
 import pandas as pd
+
+from pilot_calc import d1, doc_yeu_cau, doi_chieu_statsmodels, du_lieu_nen
 
 # Bảng giá GIẢ ĐỊNH của lab (không phải giá thật của nhà cung cấp nào)
 GIA_VAO = 26        # đồng cho 1.000 token đầu vào
@@ -136,6 +138,7 @@ if __name__ == '__main__':
         cps = (chi_phi_khac + so_ca_xem * 5 * LUONG_PHUT) / model_pham_vi['thanh_cong']
         hoa_von = (BASELINE * model_pham_vi['thanh_cong'] - chi_phi_khac) / (so_ca_xem * LUONG_PHUT)
         print(f'{phut_lam_lai:g} | {cps:,.2f} | {hoa_von:.2f}')
-    # TODO CP4 · Nhiệm vụ D: cỡ mẫu.
-    #   from statsmodels.stats.proportion import proportion_effectsize
-    #   from statsmodels.stats.power import NormalIndPower
+    print()
+    co_mau_pilot = d1()
+    doi_chieu_statsmodels(co_mau_pilot['n_a'])
+    du_lieu_nen(doc_yeu_cau())
