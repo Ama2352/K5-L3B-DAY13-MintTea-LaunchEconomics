@@ -24,6 +24,11 @@
 # Tỉ lệ mo_lai_trong_7_ngay hiện tại: 4,25% (51/1.200); riêng noi_dia + hang_nang là 3,97% (39/982).
 #   Ngưỡng an toàn đã chọn: chênh +2 điểm so với nhóm đối chứng, kèm trần tuyệt đối 6%.
 #   (Không đặt ngưỡng tuyệt đối 3% vì thấp hơn mức hiện tại, pilot sẽ bị dừng ngay tuần đầu.)
+#
+# Lịch thu mẫu: lưu lượng ước tính 1.500 yêu cầu/ngày ÷ 40 nhân viên × 81,83% thuộc phạm vi (982/1.200)
+#   ≈ 31 yêu cầu/người/ngày. Đạt 299 yêu cầu/người cần khoảng 10 ngày, nên bước 0.50 kéo dài 14 ngày
+#   (≈ 430 yêu cầu/người, dư khoảng 40% phòng lưu lượng thấp hơn ước tính).
+#   Ca cuối vào 2026-12-28, cộng 7 ngày theo dõi mở lại → đủ dữ liệu ngày 2027-01-04, quyết định 2027-01-05.
 
 pilot:
   owner: "Giám đốc vận hành LogiX-VN"
@@ -32,7 +37,14 @@ pilot:
     unit: "staff"                 # request | staff | depot
     control_share: 0.5
     randomized: true
-  rollout: [0.10, 0.25, 0.50]     # mỗi bước một tuần
+  rollout: [0.10, 0.25, 0.50]     # 4 → 10 → 20 nhân viên; chỉ đo chỉ số chính ở bước 0.50
+  schedule:
+    step_0_10: "2026-12-01 đến 2026-12-07"
+    step_0_25: "2026-12-08 đến 2026-12-14"
+    step_0_50_measurement: "2026-12-15 đến 2026-12-28 (14 ngày, chỉ tiêu 5.980 yêu cầu thực tế mỗi nhóm = 20 × 299)"
+    follow_up_end: "2027-01-04 (ca cuối đủ 7 ngày theo dõi mo_lai_trong_7_ngay)"
+    step_criteria: "Chỉ sang bước kế tiếp khi trong bước hiện tại không luật dừng nào kích hoạt và mọi event có trace_id ghi đủ ≥ 95% yêu cầu; Giám đốc vận hành ký chuyển bước"
+    shortfall: "Nếu đến 2026-12-28 nhóm nào dưới 5.980 yêu cầu, Giám đốc vận hành kéo dài bước 0.50 tối đa 7 ngày và lùi decision_date tương ứng; không đọc kết quả sớm"
   primary_metric:
     name: dong_trong_24h_khong_mo_lai_7_ngay
     baseline: 0.70
@@ -52,5 +64,5 @@ pilot:
     - "NẾU dưới 50% nhân viên nhóm dùng mở trợ lý cho yêu cầu thuộc phạm vi TRONG 2 tuần liên tiếp THÌ Trưởng nhóm CSKH phỏng vấn nhân viên và giữ nguyên bước rollout hiện tại KHÔNG THÌ không được kết luận hiệu quả của trợ lý từ nhóm đó"
   interim_looks: "chỉ kiểm tra chỉ số an toàn"
   rollback: "Kỹ sư trưởng agent bấm tắt cờ tính năng trong vòng 4 giờ; yêu cầu mới của nhóm dùng được nhân viên CSKH xử lý thủ công như trước pilot, yêu cầu đang xử lý chuyển cho nhân viên."
-  decision_date: "2026-12-22"     # đề xuất: bắt đầu 2026-12-01, ba tuần rollout, chốt sau tuần thứ ba; nhóm xác nhận lại ngày thực tế
+  decision_date: "2027-01-05"     # sau khi ca cuối (2026-12-28) đủ 7 ngày theo dõi
   simulated_inputs: ["phut_xem_lai_simulated", "phut_lam_lai_simulated", "chi phí mỗi việc thành công theo loại yêu cầu (A3)", "baseline nhân viên tự làm 6 phút = 12.000 đ"]
