@@ -33,7 +33,7 @@
 
 - Claude Code (Claude Opus): tóm tắt đề, lập checklist công việc theo phân công, tạo khung bảng trống cho file nhãn, đếm ba chỉ số từ `logix_requests.csv` bằng pandas, soạn nháp `chi_so.md`, chạy lệnh git push và tạo PR.
 - Không dùng AI để gắn nhãn 20 ca. AI không đề xuất nhãn, theo RULES.
-- Tự kiểm tra: đối chiếu ba chỉ số với số mẫu trong hướng dẫn chi tiết (khớp 994/1.200, 48/177, 51/1.200); kiểm tra mẫu số chỉ số dùng là số yêu cầu được xem lại (177), không phải 1.200; đối chiếu số rủi ro với `bang_chi_phi.md` của nhóm (lệch dưới 2%); `grep -ni production` không in gì.
+- Tự kiểm tra: đối chiếu ba chỉ số với số mẫu trong hướng dẫn chi tiết (khớp 994/1.200, 48/177, 51/1.200); kiểm tra mẫu số chỉ số dùng là số yêu cầu được xem lại (177), không phải 1.200; đối chiếu số rủi ro với `bang_chi_phi.md` của nhóm (lệch dưới 2%); lệnh tìm từ bị cấm trong `report/team` không in gì.
 
 ## 6. Tự đánh giá
 
