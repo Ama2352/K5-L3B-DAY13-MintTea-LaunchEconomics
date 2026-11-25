@@ -17,11 +17,13 @@
 - Tách bốn loại yêu cầu, dùng kết quả để đề xuất nội địa và hàng nặng, rồi cộng 40 triệu đồng chi phí cố định mỗi tháng ở hai mức khối lượng.
 - Tính chín kịch bản riêng, một kịch bản cặp, chi phí khi giới hạn lượt chạy và chi phí khi xem lại toàn bộ đầu ra. Hai lượt có chi phí toàn hệ thống thấp nhất theo B3, khoảng 6,90 triệu đồng cho 1.200 yêu cầu (simulated).
 - Ghép kết quả đồng thuận 19/20 ca, bộ chỉ số và thiết kế pilot vào hồ sơ. Ghi điều kiện xác nhận 40 nhân viên, 5.980 yêu cầu thực tế/nhóm và cửa sổ theo dõi 7 ngày trước khi ra quyết định.
+- Đối chiếu hồ sơ 3boy với thang điểm Gate 2a và lập phiếu chấm đề xuất 25/30, cho chạy thử có điều kiện. Câu hỏi duyệt chéo tập trung vào lịch thu 5.980 ca thực tế mỗi nhóm và thời gian theo dõi ca cuối đủ 7 ngày. Câu trả lời của 3boy chờ ghi nhận tại buổi duyệt.
 
 ## 4. Bằng chứng
 
 - Commit `692e55d`, PR #1 đã merge. [Code A–B](../../src/lab13.py) · [Bảng A–B](bang_chi_phi.md)
 - [Hồ sơ launch v0](ho_so_launch_v0.md) · [Báo cáo nhóm](group_report.md)
+- [Phiếu duyệt chéo 3boy](phieu_cham.md)
 
 ## 5. Công cụ AI đã dùng
 
