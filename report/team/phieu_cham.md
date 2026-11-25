@@ -19,4 +19,4 @@ Trước khi chạy, Giám đốc vận hành cần xác nhận đủ 20 nhân v
 
 > Kế hoạch chỉ đo chỉ số chính từ bước 0,50. Hai nhóm sẽ thu đủ 5.980 ca mỗi bên trong bao lâu, và ca cuối cần vào hệ thống chậm nhất ngày nào để đến 05/01/2027 đã theo dõi đủ 7 ngày?
 
-**Câu trả lời của đội trình** · Chờ ghi nhận tại buổi duyệt chéo.
+**Câu trả lời của đội trình** · Buổi duyệt chéo đã hoàn tất. Nội dung trả lời chưa có trong hồ sơ lưu tại repo.

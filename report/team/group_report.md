@@ -20,7 +20,7 @@ Nhóm đề xuất **Go có điều kiện** với pilot nội địa và hàng 
 
 Mức chênh mục tiêu của kế hoạch là +6 điểm phần trăm. Nếu tác động thật chỉ +5 điểm, power ước tính khoảng 64%. Do xem lại toàn bộ đầu ra có thể vượt chi phí xử lý thủ công, nhóm cần đo thời gian xem lại, thời gian làm lại và tỷ lệ mở lại trước khi tăng rollout.
 
-Kết quả hội đồng và điểm duyệt chéo đang chờ biên bản. [Phiếu chấm](phieu_cham.md)
+MintTea đã hoàn tất duyệt chéo Gate 2a với 3boy. Phiếu của MintTea đề xuất 25/30 cho 3boy và cho chạy thử có điều kiện. Điểm MintTea nhận được chưa có trong hồ sơ lưu tại repo. [Phiếu chấm](phieu_cham.md)
 
 ## Tài liệu
 
