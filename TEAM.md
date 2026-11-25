@@ -1,6 +1,6 @@
 ﻿# Team · MintTea (L3B)
 
-Repo nhóm [K5-L3B-DAY13-MintTea-LaunchEconomics](https://github.com/Ama2352/K5-L3B-DAY13-MintTea-LaunchEconomics). Nhánh nộp `main`. Commit chốt chờ xác nhận sau khi tích hợp báo cáo.
+Repo nhóm [K5-L3B-DAY13-MintTea-LaunchEconomics](https://github.com/Ama2352/K5-L3B-DAY13-MintTea-LaunchEconomics). Nhánh nộp `main`. Commit chốt là commit cuối trên `main` trước deadline.
 
 | Thành viên | Vai trò và phần việc | File phụ trách |
 | --- | --- | --- |

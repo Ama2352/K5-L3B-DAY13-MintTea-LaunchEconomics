@@ -59,8 +59,8 @@ pilot:
     spillover_risk: "Có: nhân viên chia sẻ câu trả lời trong depot; giảm bằng quyền truy cập theo tài khoản và log lượt mở trợ lý theo staff_id."
     predeclared: "Có: chỉ số chính, ngưỡng, luật dừng và ngày quyết định chốt trong file này trước ngày bắt đầu."
   stop_rules:
-    - "NẾU tỉ lệ mo_lai_trong_7_ngay của nhóm dùng trợ lý cao hơn nhóm đối chứng quá 2 điểm hoặc vượt trần tuyệt đối 6% TRONG 3 ngày liên tiếp THÌ Kỹ sư trưởng agent tắt trợ lý cho nhóm dùng và trả yêu cầu về nhân viên trong vòng 4 giờ KHÔNG THÌ không được tăng sang bước rollout tiếp theo"
-    - "NẾU chi phí mỗi việc thành công (simulated) của phạm vi pilot vượt 12.000 đ, bằng mức nhân viên tự làm, TRONG 2 tuần liên tiếp THÌ PM trợ lý hoàn phí dừng mở rộng và rà lại số lần xem lại và làm lại KHÔNG THÌ không được tăng tỉ lệ rollout"
+    - "NẾU tỉ lệ mo_lai_trong_7_ngay của nhóm dùng trợ lý cao hơn nhóm đối chứng quá 2 điểm hoặc vượt trần tuyệt đối 6% TRONG 3 ngày liên tiếp THÌ Kỹ sư trưởng agent tắt trợ lý cho nhóm dùng và trả yêu cầu về nhân viên trong vòng 4 giờ KHÔNG THÌ tiếp tục theo dõi và chỉ chuyển bước khi đáp ứng step_criteria"
+    - "NẾU chi phí mỗi việc thành công (simulated) của phạm vi pilot vượt 12.000 đ, bằng mức nhân viên tự làm, TRONG 2 tuần liên tiếp THÌ PM trợ lý hoàn phí dừng mở rộng và rà lại số lần xem lại và làm lại KHÔNG THÌ tiếp tục theo dõi và chỉ chuyển bước khi đáp ứng step_criteria"
     - "NẾU dưới 50% nhân viên nhóm dùng mở trợ lý cho yêu cầu thuộc phạm vi TRONG 2 tuần liên tiếp THÌ Trưởng nhóm CSKH phỏng vấn nhân viên và giữ nguyên bước rollout hiện tại KHÔNG THÌ không được kết luận hiệu quả của trợ lý từ nhóm đó"
   interim_looks: "chỉ kiểm tra chỉ số an toàn"
   rollback: "Kỹ sư trưởng agent bấm tắt cờ tính năng trong vòng 4 giờ; yêu cầu mới của nhóm dùng được nhân viên CSKH xử lý thủ công như trước pilot, yêu cầu đang xử lý chuyển cho nhân viên."
