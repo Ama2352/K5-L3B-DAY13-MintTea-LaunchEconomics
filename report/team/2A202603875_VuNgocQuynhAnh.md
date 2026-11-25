@@ -21,13 +21,13 @@
 - Liệt kê 8 event có `trace_id` và kiểm tra chéo để chỉ số nào cũng tính được từ event.
 - Viết 3 dòng rủi ro kinh tế lấy số từ bảng độ nhạy của nhóm: làm lại gấp đôi (+51,77%, simulated), xem lại 100% (0,98× đến 1,03×, simulated), khối lượng thấp (+1.185 đến +2.370 đ/việc, simulated).
 - Gửi mức nền 3,97% và 21,09% cho người lập `pilot_plan.yaml` để đặt ngưỡng luật dừng.
-- Phiếu chấm: <điền sau buổi duyệt chéo — nhóm được chấm, tổng điểm, quyết định>
+- Phiếu chấm: MintTea chấm nhóm 3boy (L3B), tổng 25/30 (10 · 10 · 5), quyết định Go có điều kiện.
 
 ## 4. Bằng chứng
 
 - `report/team/nhan_quynhanh.md`: commit `624df55`, PR #2
 - `report/team/chi_so.md`: commit `afd3c24`, PR #4
-- `report/team/phieu_cham.md`: <commit, PR>
+- `report/team/phieu_cham.md`: commit `66806ff`, `ff9d15c`, `149a4a6` (đẩy thẳng lên `main`, không qua PR)
 
 ## 5. Công cụ AI đã dùng
 

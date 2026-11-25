@@ -52,5 +52,5 @@ pilot:
     - "NẾU dưới 50% nhân viên nhóm dùng mở trợ lý cho yêu cầu thuộc phạm vi TRONG 2 tuần liên tiếp THÌ Trưởng nhóm CSKH phỏng vấn nhân viên và giữ nguyên bước rollout hiện tại KHÔNG THÌ không được kết luận hiệu quả của trợ lý từ nhóm đó"
   interim_looks: "chỉ kiểm tra chỉ số an toàn"
   rollback: "Kỹ sư trưởng agent bấm tắt cờ tính năng trong vòng 4 giờ; yêu cầu mới của nhóm dùng được nhân viên CSKH xử lý thủ công như trước pilot, yêu cầu đang xử lý chuyển cho nhân viên."
-  decision_date: "2026-12-22"     # đề xuất: bắt đầu 2026-12-01, ba tuần rollout, chốt sau tuần thứ ba; nhóm xác nhận lại ngày thực tế
+  decision_date: "2026-12-28"     # bắt đầu 2026-12-01, ba tuần rollout, ca cuối vào 2026-12-21, cộng 7 ngày theo dõi mo_lai_trong_7_ngay; nhóm xác nhận lại ngày thực tế
   simulated_inputs: ["phut_xem_lai_simulated", "phut_lam_lai_simulated", "chi phí mỗi việc thành công theo loại yêu cầu (A3)", "baseline nhân viên tự làm 6 phút = 12.000 đ"]
