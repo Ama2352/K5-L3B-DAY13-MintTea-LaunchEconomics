@@ -19,4 +19,4 @@ Trước khi chạy, Giám đốc vận hành cần xác nhận đủ 20 nhân v
 
 > Kế hoạch chỉ đo chỉ số chính từ bước 0,50. Hai nhóm sẽ thu đủ 5.980 ca mỗi bên trong bao lâu, và ca cuối cần vào hệ thống chậm nhất ngày nào để đến 05/01/2027 đã theo dõi đủ 7 ngày?
 
-**Câu trả lời của đội trình** · Buổi duyệt chéo đã hoàn tất. Nội dung trả lời chưa có trong hồ sơ lưu tại repo.
+**Trả lời theo kế hoạch pilot của 3boy** · Ở bước rollout 0,50, mỗi bên có 20 nhân viên và cần thu ít nhất 299 ca hợp lệ mỗi người, tức 5.980 ca thực tế mỗi bên để đạt khoảng 859 quan sát hiệu dụng. Kế hoạch ghi mỗi bước rollout kéo dài một tuần. Để đạt chỉ tiêu trong tuần đo ở bước 0,50, mỗi bên cần trung bình khoảng 855 ca hợp lệ mỗi ngày. Với ngày quyết định 05/01/2027, ca cuối cần vào hệ thống chậm nhất ngày 29/12/2026 để có đủ 7 ngày theo dõi. Lưu lượng 855 ca/ngày là mức cần đạt tính từ kế hoạch. Khả năng thu đủ với lưu lượng thực tế là điều kiện hội đồng yêu cầu xác nhận.
