@@ -4,30 +4,30 @@
 
 ## Hai bộ nhãn độc lập
 
-Người gắn nhãn 1: ... · Người gắn nhãn 2: ... (gắn trong 8 phút, không trao đổi)
+Người gắn nhãn 1: Thảo Quyên · Người gắn nhãn 2: ... (gắn trong 8 phút, không trao đổi)
 
 | Ca | Nhãn người 1 | Nhãn người 2 | Trùng? | Nhãn thống nhất |
 | --: | --- | --- | --- | --- |
-| 1 | ... | ... | ... | ... |
-| 2 | ... | ... | ... | ... |
-| 3 | ... | ... | ... | ... |
-| 4 | ... | ... | ... | ... |
-| 5 | ... | ... | ... | ... |
-| 6 | ... | ... | ... | ... |
-| 7 | ... | ... | ... | ... |
-| 8 | ... | ... | ... | ... |
-| 9 | ... | ... | ... | ... |
-| 10 | ... | ... | ... | ... |
-| 11 | ... | ... | ... | ... |
-| 12 | ... | ... | ... | ... |
-| 13 | ... | ... | ... | ... |
-| 14 | ... | ... | ... | ... |
-| 15 | ... | ... | ... | ... |
-| 16 | ... | ... | ... | ... |
-| 17 | ... | ... | ... | ... |
-| 18 | ... | ... | ... | ... |
-| 19 | ... | ... | ... | ... |
-| 20 | ... | ... | ... | ... |
+| 1 | Do người dùng | ... | ... | ... |
+| 2 | Hệ thống | ... | ... | ... |
+| 3 | Ngầm | ... | ... | ... |
+| 4 | Giới hạn hệ thống | ... | ... | ... |
+| 5 | Ngầm | ... | ... | ... |
+| 6 | Do người dùng | ... | ... | ... |
+| 7 | Hệ thống | ... | ... | ... |
+| 8 | Hệ thống | ... | ... | ... |
+| 9 | Do người dùng | ... | ... | ... |
+| 10 | Ngữ cảnh | ... | ... | ... |
+| 11 | Giới hạn hệ thống | ... | ... | ... |
+| 12 | Ngầm | ... | ... | ... |
+| 13 | Giới hạn hệ thống | ... | ... | ... |
+| 14 | Do người dùng | ... | ... | ... |
+| 15 | Hệ thống | ... | ... | ... |
+| 16 | Ngữ cảnh | ... | ... | ... |
+| 17 | Ngầm | ... | ... | ... |
+| 18 | Ngữ cảnh | ... | ... | ... |
+| 19 | Giới hạn hệ thống | ... | ... | ... |
+| 20 | Hệ thống | ... | ... | ... |
 
 **Tỉ lệ đồng thuận:** ... / 20 = ...%
 
@@ -43,8 +43,8 @@ Cách phát hiện phải đo được (event, ngưỡng, tần suất). Ngườ
 
 | Ca | Loại lỗi | Phát hiện bằng gì | Khắc phục thế nào | Ai phụ trách |
 | --: | --- | --- | --- | --- |
-| ... | Do người dùng | ... | ... | ... |
-| ... | Hệ thống | ... | ... | ... |
-| ... | Ngữ cảnh | ... | ... | ... |
-| ... | Giới hạn hệ thống | ... | ... | ... |
-| ... | Ngầm | ... | ... | ... |
+| 14 | Do người dùng | Event `confirm_received_clicked` mà 24 giờ sau có `reopen_request` hoặc khiếu nại cùng `trace_id`; cảnh báo khi quá 1% yêu cầu đóng trong ngày | Thêm bước xác nhận hai lần kèm số tiền và tài khoản nhận; cho phép mở lại trong 7 ngày không cần tạo yêu cầu mới | PM trợ lý hoàn phí |
+| 2 | Hệ thống | Kiểm tra mẫu mỗi ngày: so tham số tool `tra_bang_gia` (loại hàng, cân nặng) với dữ liệu đơn; ngưỡng 0 ca sai loại hàng; theo dõi tỉ lệ `mo_lai_trong_7_ngay` của `hang_nang` theo tuần | Bắt buộc suy ra loại hàng từ cân nặng (từ 20 kg là hàng nặng) trước khi gọi tool; thêm kiểm tra đầu ra tool so với khoảng giá hợp lệ | Kỹ sư trưởng agent |
+| 16 | Ngữ cảnh | Event `notification_sent` có giờ gửi ngoài 07:00–21:00; tỉ lệ khiếu nại về thông báo theo tuần, ngưỡng 0,5% | Hẹn giờ gửi: tin nhắn tạo ngoài khung 07:00–21:00 được giữ lại tới 07:00 sáng hôm sau; tin gấp vẫn gửi qua kênh không rung | Trưởng nhóm CSKH |
+| 19 | Giới hạn hệ thống | Event `handoff_to_staff` với `reason` = `ngoai_thoi_han_luu_tru`; theo dõi số ca mỗi tuần và thời gian nhân viên xử lý | Giữ cách chuyển nhân viên kèm tóm tắt; báo ngay thời hạn tra cứu 12 tháng khi khách bắt đầu; nếu tỉ lệ vượt 3% thì cân nhắc mở rộng kho dữ liệu | PM trợ lý hoàn phí |
+| 12 | Ngầm | Cảnh báo chi phí token trung bình mỗi yêu cầu theo depot mỗi ngày: depot vượt 1,5 lần trung vị 12 depot hai ngày liên tiếp; kèm kiểm tra tool trả đủ trường (schema) | Thêm kiểm tra schema đầu ra của tool tra đơn và báo lỗi khi thiếu trường; giới hạn số lần gọi lại tối đa 3 mỗi yêu cầu | Kỹ sư trưởng agent |
